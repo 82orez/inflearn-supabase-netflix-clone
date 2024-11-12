@@ -2,7 +2,7 @@
 
 import MovieCard from "@/components/movie-card";
 import { useQuery } from "@tanstack/react-query";
-import { getAllMovies } from "@/server-actions/actions";
+import { getAllMovies, prismaGetAllMovies } from "@/server-actions/actions";
 import { useRecoilValue } from "recoil";
 import { searchState } from "@/atoms/searchState";
 
@@ -11,7 +11,7 @@ export default function MovieCardList() {
 
   const { isPending, data, error } = useQuery({
     queryKey: ["movies", search],
-    queryFn: () => getAllMovies(search),
+    queryFn: () => prismaGetAllMovies(search),
   });
 
   if (isPending) return <p>Loading...</p>;
