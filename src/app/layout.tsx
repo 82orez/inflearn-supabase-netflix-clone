@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ReactQueryProvider from "@/app/react-query-provider";
+import RecoilRootWrapper from "@/app/recoilWrapper";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,11 +30,13 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ReactQueryProvider>
-          <Header />
-          {children}
-          <Footer />
-        </ReactQueryProvider>
+        <RecoilRootWrapper>
+          <ReactQueryProvider>
+            <Header />
+            {children}
+            <Footer />
+          </ReactQueryProvider>
+        </RecoilRootWrapper>
       </body>
     </html>
   );
