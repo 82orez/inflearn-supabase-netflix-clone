@@ -1,5 +1,7 @@
 import MovieCardClient from "@/app/movies/[id]/movieCardClient";
+import { getMovie } from "@/server-actions/actions";
 
-export default function MovieDetailPage({ params }) {
-  return <MovieCardClient id={params.id} />;
+export default async function MovieDetailPage({ params }) {
+  const movie = await getMovie(params.id);
+  return <MovieCardClient movie={movie} />;
 }

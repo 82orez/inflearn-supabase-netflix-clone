@@ -3,11 +3,15 @@
 import MovieCard from "@/components/movie-card";
 import { useQuery } from "@tanstack/react-query";
 import { getAllMovies } from "@/server-actions/actions";
+import { useRecoilValue } from "recoil";
+import { searchState } from "@/atoms/searchState";
 
 export default function MovieCardList() {
+  const search = useRecoilValue(searchState);
+
   const { isPending, data, error } = useQuery({
-    queryKey: ["movies"],
-    queryFn: () => getAllMovies(),
+    queryKey: ["movies", search],
+    queryFn: () => getAllMovies(search),
   });
 
   if (isPending) return <p>Loading...</p>;

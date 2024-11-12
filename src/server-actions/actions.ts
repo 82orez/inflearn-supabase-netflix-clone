@@ -8,10 +8,20 @@ function handleError(error) {
     throw error;
   }
 }
+
 export async function getAllMovies(search = "") {
   const supabase = await createClient();
 
-  const { data, error } = await supabase.from("Movie").select("*").like("title", `%${search}%`);
+  const { data, error } = await supabase.from("Movie").select("*").ilike("title", `%${search}%`);
+
+  handleError(error);
+
+  return data;
+}
+
+export async function getMovie(id) {
+  const supabase = await createClient();
+  const { data, error } = await supabase.from("Movie").select("*").eq("id", id).maybeSingle();
 
   handleError(error);
 
