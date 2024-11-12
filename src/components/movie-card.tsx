@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function MovieCard() {
   return (
     <div className={"relative border-2"}>
-      <Link href="/1">
+      <Link href="/movies/1">
         <Image src="https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg" alt="" width={"400"} height={"800"} />
         <div
           className={
