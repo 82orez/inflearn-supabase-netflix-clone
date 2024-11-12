@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Ui({ id }) {
+export default function MovieCardClient({ id }) {
   return (
     <main className={"mt-16 flex gap-12 p-4 bg-blue-50"}>
       <Image src="https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg" alt="" width={"400"} height={"800"} className={"w-1/3"} />

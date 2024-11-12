@@ -1,5 +1,5 @@
-import Ui from "@/app/movies/[id]/ui";
+import MovieCardClient from "@/app/movies/[id]/movieCardClient";
 
 export default function MovieDetailPage({ params }) {
-  return <Ui id={params.id} />;
+  return <MovieCardClient id={params.id} />;
 }
